@@ -286,7 +286,7 @@ Figures with captions are included in the \texttt{figure} environment in order t
 
 \begin{figure}[htb]
   \centering
-  \includegraphics[width=0.4\textwidth]{images/testimage.png}
+  \includegraphics[width=0.4\textwidth]{content/images/testimage.png}
   \caption[Test image for television]{Test image for television (Origin of the image: \url{http://de.wikipedia.org/wiki/Testbild}).}
   \label{fig:example:figure}
 \end{figure}
@@ -296,13 +296,13 @@ All possibilities of grouping pictures side by side, on top or in matrices can b
 \begin{figure}[htb]
   \begin{subfigure}[b]{.45\linewidth}
     \centering
-    \includegraphics[width=0.5\linewidth]{images/testimage.png}
+    \includegraphics[width=0.5\linewidth]{content/images/testimage.png}
     \caption{The first subfigure.}
     \label{fig:example:subfigures:a}
   \end{subfigure}%
   \begin{subfigure}[b]{.45\linewidth}
     \centering
-    \includegraphics[width=0.5\linewidth]{images/testimage.png}
+    \includegraphics[width=0.5\linewidth]{content/images/testimage.png}
     \caption{The second subfigure.}
     \label{fig:example:subfigures:b}
   \end{subfigure}
@@ -328,5 +328,5 @@ A word is added to the index with the command \cs{index\{word\}} and these index
 \ifcsdef{lstStyleLaTeX}{%
   \lstinputlisting[style=lstStyleLaTeX,%nolol=true,%
      caption={LaTeX Typesetting By Example}, label=lstLaTeXExample]  
-  {content/template/latextutorial.tex}
+  {content/chapters/template/latextutorial.tex}
 }{}  
