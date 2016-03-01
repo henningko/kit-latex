@@ -21,7 +21,7 @@
 %%% --- Koma Script Version ---
    version=last, %
 %%% --- Global Package Options ---
-   english, % language (passed to babel and other packages)
+   USenglish, % language (passed to babel and other packages)
             % (ngerman, english, french, ...)
 ]{scrbook} % Classes: scrartcl, scrreprt, scrbook
 
@@ -31,6 +31,7 @@
 % packages to allow more \write outputs
 \input{preamble/packages-SolutionsNoRoomForNewWrite.tex}
 % packages required for the template
+\usepackage{atveryend}
 \usepackage{codesection}
 \usepackage{templatetools}
 
@@ -75,7 +76,7 @@
 
 %%% Switch between colored links (web) and black links (print)
 \IfDefined{UseDefinition}{%
-  %\UseDefinition{Target}{Print}
+  % \UseDefinition{Target}{Print}
   \UseDefinition{Target}{Web}
 }% end of UseDefinition
 
@@ -114,14 +115,13 @@
 % ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 % bibliography (now in preamble !)
 % ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
 %%% bibtex file(s)
 % add multiple files with comma separation
 % biblatex requires files before document
 \IfPackageLoaded{biblatex}{
   % add all .bib files:
   \addbibresource{content/bib/BibtexDatabase.bib}
-  \addbibresource{content/bib/publications.bib}
+  % \addbibresource{content/bib/publications.bib}
   % \addbibresource{content/bib/BibtexData-anytopic.bib}
 }% end: biblatex
 
@@ -157,7 +157,7 @@
 
 % -- abstract --
 % (only in phd thesis)
-\include{content/chapters/0-Abstract} 
+% \include{content/chapters/0-Abstract}
 \cleardoublepage
 % -- declaration --
 % (only in bachelor/master thesis)
@@ -175,8 +175,8 @@
 \IfPackagesLoaded{glossaries,longtable,tabu}{%
   \clearpage
   % print out acronym list   
-  \IfGlossariesStyleDefined{longtabuFancyHeader}%
-   {\printglossary[type=\acronymtype,style=longtabuFancyHeader]}%
+  % \IfGlossariesStyleDefined{longtabuFancyHeader}%
+   \printglossary[type=\acronymtype, style=long]%
   % print out symbol list 
   \IfGlossariesStyleDefined{longtabuFancyHeader}%
    {\printglossary[type=symbolslist,style=longtabuFancyHeader]}%
@@ -189,11 +189,7 @@
 %
 % (files loaded with include must not have the prefix .tex)
 %
-\include{content/chapters/0-Introduction}
-\include{content/chapters/1-Theory}
-\include{content/chapters/2-Experiments}
-\include{content/chapters/3-Results}
-\include{content/chapters/4-Summery}
+\input{content/chapters/content.tex}
 
 %%% -- end of main content
 
@@ -215,30 +211,30 @@
 
 %% -- List of Listings --
 % _Remove_ if no listing with caption is defined
-\IfDefined{lstlistoflistings}{\cleardoublepage\lstlistoflistings}
+% \IfDefined{lstlistoflistings}{\cleardoublepage\lstlistoflistings}
 
 % --- Appendix --- --- --- --- --- --- ---
 \cleardoublepage
-\appendix
+% \appendix
 % Add `Appendix` to TOC
-\addcontentsline{toc}{part}{\appendixname}
+% \addcontentsline{toc}{part}{\appendixname}
 % must be _input_, otherwise the TOC entry is at the wrong place
-\input{content/chapters/Z-Appendix.tex}
+% \input{content/chapters/Z-Appendix.tex}
 
 % -- only in phd thesis --->
-\input{content/chapters/Z-Publications.tex}
-\input{content/chapters/Z-CV.tex}
+%\input{content/chapters/Z-Publications.tex}
+% \input{content/chapters/Z-CV.tex}
 % <------------------------
 
 %% -- Index --
 % _Remove_ Index unless you really want to invest a large amount
 % of time and effort to create a good index!
-\IfDefined{printindex}{%
-  \cleardoublepage\IfDefined{phantomsection}{\phantomsection}\label{sec:index}%
-  \printindex%
-}% end of index
+% \IfDefined{printindex}{%
+  % \cleardoublepage\IfDefined{phantomsection}{\phantomsection}\label{sec:index}%
+  % \printindex%
+% }% end of index
 
-\input{content/chapters/Z-Thanks.tex}
+% \input{content/chapters/Z-Thanks.tex}
 
 % add todo list (remove for final document!)
 % \input{content/chapters/Z-Todo.tex}
